@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator with Memory</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      margin-top: 30px; 
+      background: #0b0e1a; 
+      color: #e6e8ee;
+    }
+    #calculator { 
+      display: inline-block; 
+      padding: 15px; 
+      border: 2px solid #2b3556; 
+      border-radius: 10px; 
+      background: #11162b;
+    }
+    #display, #preview { 
+      width: 220px; 
+      height: 40px; 
+      font-size: 18px; 
+      text-align: right; 
+      margin-bottom: 10px; 
+      border-radius: 8px;
+      border: 1px solid #2b3556;
+      background: #16213e;
+      color: #e6e8ee;
+      padding: 6px 8px;
+    }
+    #preview { 
+      background: #16213e; 
+      border: 1px solid #2b3556;
+      opacity: 0.85;
+    }
+    button { 
+      width: 50px; 
+      height: 50px; 
+      font-size: 18px; 
+      margin: 3px; 
+      border-radius: 8px;
+      border: 1px solid #2b3556;
+      background: #16213e;
+      color: #e6e8ee;
+      cursor: pointer;
+    }
+    .wide {
+      width: 107px;
+    }
+    #memory-indicator {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #e94057;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 20px;
+      display: none;
+    }
+    .calculator-container {
+      position: relative;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <div id="memory-indicator">M</div>
+    <div id="calculator">
+      <input type="text" id="display" disabled><br>
+      <input type="text" id="preview" disabled><br>
+
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">/</button>
+      <button onclick="memoryRecall()">MR</button><br>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">*</button>
+      <button onclick="memoryClear()">MC</button><br>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">-</button>
+      <button onclick="memoryAdd()">M+</button><br>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+      <button onclick="memorySubtract()">M-</button><br>
+
+      <button onclick="backspace()" class="wide">Remove</button>
+      <button onclick="clearDisplay()" class="wide">Clear</button>
+    </div>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
